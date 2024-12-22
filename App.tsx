@@ -10,7 +10,7 @@ export class App extends Component {
     return (
       <NavigationContainer>
         <stack.Navigator
-          initialRouteName="Splash"
+          initialRouteName="select-city"
           screenOptions={{headerShown: false}}>
           <stack.Screen name="Splash" component={Splash}></stack.Screen>
           <stack.Screen
