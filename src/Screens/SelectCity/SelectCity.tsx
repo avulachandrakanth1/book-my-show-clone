@@ -9,15 +9,21 @@ import React, {useState} from 'react';
 import {CityStyles} from './CityStyles';
 import {Cities} from '../../Utils/StaticData/data';
 import {useColors} from '../../Utils/Styles/Colors';
+import {useNavigation} from '@react-navigation/native';
 
 const SelectCity = () => {
   const [city, selectCity] = useState();
   const [isDisabled, setDisabled] = useState(true);
+  const nav = useNavigation();
 
   const citySelect = (index: any) => {
     selectCity(index);
     console.log(city);
     setDisabled(false);
+  };
+
+  const goTo = () => {
+    nav.replace('home');
   };
 
   return (
@@ -55,6 +61,9 @@ const SelectCity = () => {
           marginBottom: 10,
         }}>
         <TouchableOpacity
+          onPress={() => {
+            goTo();
+          }}
           style={
             isDisabled
               ? CityStyles.DisableGetStartedBtn
